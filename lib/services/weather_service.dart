@@ -14,7 +14,8 @@ class WeatherService {
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
     } else {
-      throw Exception("Erro ao carregar previsão do tempo");
+      final error = jsonDecode(response.body);
+      throw Exception("Erro da API: ${error['error']['message']}");
     }
   }
 }
