@@ -38,37 +38,53 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
     final task = widget.task;
     final formattedDate = DateFormat('dd/MM/yyyy').format(task.date);
 
-    return Scaffold(
-      appBar: AppBar(title: const Text("Detalhes da Tarefa")),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(task.title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-            const SizedBox(height: 8),
-            Text("Data: $formattedDate"),
-            const SizedBox(height: 8),
-            Text("Descrição: ${task.description.isEmpty ? 'Nenhuma' : task.description}"),
-            const Divider(height: 30),
-            const Text("🌤️ Previsão do Tempo", style: TextStyle(fontSize: 18)),
-            const SizedBox(height: 10),
-            isLoading
-                ? const CircularProgressIndicator()
-                : weatherData == null
-                ? const Text("Erro ao obter previsão do tempo.")
-                : Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Cidade: ${weatherData!['location']['name']}"),
-                Text("Condição: ${weatherData!['forecast']['forecastday'][0]['day']['condition']['text']}"),
-                Text("Temperatura Máxima: ${weatherData!['forecast']['forecastday'][0]['day']['maxtemp_c']} °C"),
-                Text("Temperatura Mínima: ${weatherData!['forecast']['forecastday'][0]['day']['mintemp_c']} °C"),
-              ],
-            ),
-          ],
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Colors.deepPurple, Colors.black],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: const Text("Detalhes da Tarefa"),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(task.title, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white)),
+              const SizedBox(height: 10),
+              Text("Data: $formattedDate", style: const TextStyle(color: Colors.white70)),
+              const SizedBox(height: 10),
+              Text("Descrição:", style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+              Text(task.description.isEmpty ? 'Nenhuma' : task.description, style: const TextStyle(color: Colors.white)),
+              const Divider(height: 40, color: Colors.white38),
+              const Text("🌤️ Previsão do Tempo", style: TextStyle(fontSize: 20, color: Colors.white)),
+              const SizedBox(height: 10),
+              isLoading
+                  ? const CircularProgressIndicator()
+                  : weatherData == null
+                  ? const Text("Erro ao obter previsão do tempo.", style: TextStyle(color: Colors.white70))
+                  : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("Cidade: ${weatherData!['location']['name']}", style: const TextStyle(color: Colors.white70)),
+                  Text("Condição: ${weatherData!['forecast']['forecastday'][0]['day']['condition']['text']}", style: const TextStyle(color: Colors.white70)),
+                  Text("Temperatura Máxima: ${weatherData!['forecast']['forecastday'][0]['day']['maxtemp_c']} °C", style: const TextStyle(color: Colors.white70)),
+                  Text("Temperatura Mínima: ${weatherData!['forecast']['forecastday'][0]['day']['mintemp_c']} °C", style: const TextStyle(color: Colors.white70)),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
