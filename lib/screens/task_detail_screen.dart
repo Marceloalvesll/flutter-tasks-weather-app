@@ -76,8 +76,26 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 children: [
                   Text("Cidade: ${weatherData!['location']['name']}", style: const TextStyle(color: Colors.white70)),
                   Text("Condição: ${weatherData!['forecast']['forecastday'][0]['day']['condition']['text']}", style: const TextStyle(color: Colors.white70)),
-                  Text("Temperatura Máxima: ${weatherData!['forecast']['forecastday'][0]['day']['maxtemp_c']} °C", style: const TextStyle(color: Colors.white70)),
-                  Text("Temperatura Mínima: ${weatherData!['forecast']['forecastday'][0]['day']['mintemp_c']} °C", style: const TextStyle(color: Colors.white70)),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          const Icon(Icons.thermostat, color: Colors.orangeAccent),
+                          const SizedBox(width: 4),
+                          Text("Máx: ${weatherData!['forecast']['forecastday'][0]['day']['maxtemp_c']} °C", style: const TextStyle(color: Colors.white70)),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          const Icon(Icons.ac_unit, color: Colors.lightBlueAccent),
+                          const SizedBox(width: 4),
+                          Text("Mín: ${weatherData!['forecast']['forecastday'][0]['day']['mintemp_c']} °C", style: const TextStyle(color: Colors.white70)),
+                        ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ],
@@ -87,4 +105,3 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
     );
   }
 }
-
