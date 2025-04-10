@@ -32,16 +32,16 @@ Este é um aplicativo desenvolvido com Flutter para fins acadêmicos. Ele permit
 ## 🖼️ Demonstração visual
 
 ### 🏠 Tela Inicial (Listar tarefas)
-<img src="screenshots/home.png.png" width="300" alt="Tela inicial"/>
+<img src="screenshots/home.png" width="300" alt="Tela inicial"/>
 
 ### ➕ Criar nova tarefa
-<img src="screenshots/form.png.png" width="300" alt="Criar tarefa"/>
+<img src="screenshots/form.png" width="300" alt="Criar tarefa"/>
 
 ### 📝 Editar tarefa existente
-<img src="screenshots/form_edit.png.png" width="300" alt="Editar tarefa"/>
+<img src="screenshots/form_edit.png" width="300" alt="Editar tarefa"/>
 
 ### 🔍 Detalhes da Tarefa
-<img src="screenshots/details.png.png" width="300" alt="Detalhes da tarefa"/>
+<img src="screenshots/details.png" width="300" alt="Detalhes da tarefa"/>
 
 ---
 
